@@ -5,69 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>La Spa & Skincare</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center; /* 모든 텍스트와 콘텐츠를 중앙 정렬 */
-    }
-  
-    .navbar-brand {
-      font-family: 'Georgia', serif;
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin: 0 auto; /* 로고 중앙 정렬 */
-    }
-  
-    .sticky-top {
-      background-color: white;
-      z-index: 1020;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-  
-    footer {
-      background-color: #f8f9fa;
+      font-family: 'Lato', sans-serif;
+      background-color: #fdfdfb;
+      color: #333;
       text-align: center;
-      padding: 1rem 0;
     }
-  
-    /* Ensure all images have the same height */
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: #6e4b3a;
+    }
+
+    .navbar {
+      background-color: #fffaf3;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: bold;
+      font-size: 1.75rem;
+      color: #6e4b3a;
+    }
+
     .photo-grid img {
-      height: 200px; /* Adjust height as needed */
+      height: 200px;
       object-fit: cover;
       width: 100%;
       border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
     }
-  
-    /* Center align the photo grid */
+
     .photo-grid {
-      justify-content: center; /* 사진 그리드 중앙 정렬 */
+      justify-content: center;
     }
-  
-    /* Responsive layout */
-    @media (max-width: 768px) {
-      .photo-grid .col-6 {
-        flex: 0 0 100%; /* Make each image take full width on mobile */
-        max-width: 100%;
-      }
-    }
-  
-    /* Contact Info Section */
-    .contact-info {
-      display: inline-block; /* Contact 정보를 중앙에 정렬 */
-      text-align: left; /* 텍스트는 왼쪽 정렬 */
-    }
-  
-    /* Map Section */
+
     .map iframe {
-      margin: 0 auto; /* 지도 중앙 정렬 */
+      margin: 2rem auto;
       display: block;
+      border: 2px solid #e3d5c0;
+      border-radius: 1rem;
+    }
+
+    .contact {
+      background-color: #fffaf3;
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .contact h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-card {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contact-card p {
+      font-size: 1.05rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-card i {
+      color: #c59d5f;
+      margin-right: 8px;
+      min-width: 20px;
+    }
+
+    footer {
+      background-color: #f4ede2;
+      color: #6e4b3a;
+      padding: 1rem 0;
+      margin-top: 2rem;
+      font-family: 'Playfair Display', serif;
     }
   </style>
+  <script src="https://kit.fontawesome.com/a2e444caae.js" crossorigin="anonymous"></script>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80" tabindex="0">
+<body>
 
   <!-- Navbar -->
-  <nav id="navbar" class="navbar navbar-expand-lg sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#">La Spa & Skincare</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
@@ -83,49 +109,36 @@
     </div>
   </nav>
 
-  <!-- Main Container -->
   <div class="container my-4">
-
-    <!-- Photos Section -->
+    <!-- Photos -->
     <section id="photos" class="photo-grid row g-3 mb-4">
-        <div class="col-6 col-md-3">
-        <img src="./images/home_main1.jpg" alt="photo1" class="img-fluid" />
-        </div>
-        <div class="col-6 col-md-3">
-        <img src="https://autumnia.github.io/laspa/images/home_main2.jpg" alt="photo2" class="img-fluid" />
-        </div>
-        <div class="col-6 col-md-3">
-        <img src="https://autumnia.github.io/laspa/images/service1.jpg" alt="photo3" class="img-fluid" />
-        </div>
-        <div class="col-6 col-md-3">
-        <img src="https://autumnia.github.io/laspa/images/service2.jpg" alt="photo4" class="img-fluid" />
-        </div>
+      <div class="col-6 col-md-3"><img src="./images/home_main1.jpg" alt="photo1"></div>
+      <div class="col-6 col-md-3"><img src="https://autumnia.github.io/laspa/images/home_main2.jpg" alt="photo2"></div>
+      <div class="col-6 col-md-3"><img src="https://autumnia.github.io/laspa/images/service1.jpg" alt="photo3"></div>
+      <div class="col-6 col-md-3"><img src="https://autumnia.github.io/laspa/images/service2.jpg" alt="photo4"></div>
     </section>
 
-
-
+    <!-- Map -->
     <section id="map" class="map">
-        <h2>Our Global Location</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.821902735909!2d109.1981922!3d11.986822199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31708d5e02ef2763%3A0xb180b482514a8e3!2sLA%20SPA%20SKINCARE%20CR!5e0!3m2!1sko!2skr!4v1746678721483!5m2!1sko!2skr" 
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <h2>Our Global Location</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.821902735909!2d109.1981922!3d11.986822199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31708d5e02ef2763%3A0xb180b482514a8e3!2sLA%20SPA%20SKINCARE%20CR!5e0!3m2!1sko!2skr!4v1746678721483!5m2!1sko!2skr"
+       width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
     </section>
-      
 
-    <!-- Contact Info -->
+    <!-- Contact -->
     <section id="contact" class="contact">
-        <h2>Contact Info</h2>
-        <div class="contact-info">
-          <p><strong>WhatsApp:</strong> +84 86 22 66 774</p>
-          <p><strong>Zalo:</strong> +84 86 22 66 774</p>
-          <p><strong>Kakao Talk:</strong> lacrspa</p>
-          <p><strong>Facebook:</strong> Lá CR Spa Skincare</p>
-          <p><strong>Viber:</strong> +84 86 22 66 774</p>
-          <p><strong>Hotline:</strong> +84 86 22 66 774 / 02583.971.979</p>
-        </div>
-      </section>
+      <h2>Contact Info</h2>
+      <div class="contact-card">
+        <p><i class="fab fa-whatsapp"></i><strong>WhatsApp:</strong> +84 86 22 66 774</p>
+        <p><i class="fas fa-comments"></i><strong>Zalo:</strong> +84 86 22 66 774</p>
+        <p><i class="fas fa-comment-dots"></i><strong>KakaoTalk:</strong> lacrspa</p>
+        <p><i class="fab fa-facebook-f"></i><strong>Facebook:</strong> Lá CR Spa Skincare</p>
+        <p><i class="fab fa-viber"></i><strong>Viber:</strong> +84 86 22 66 774</p>
+        <p><i class="fas fa-phone"></i><strong>Hotline:</strong> +84 86 22 66 774 / 02583.971.979</p>
+      </div>
+    </section>
   </div>
 
-  <!-- Footer -->
   <footer>
     &copy; 2025 La Spa & Skincare. All rights reserved.
   </footer>
