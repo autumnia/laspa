@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>브라우저 기반 예약 시스템</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input, button { margin: 5px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+
+  <h2>예약 등록</h2>
+  <input type="text" id="name" placeholder="이름" />
+  <input type="date" id="date" />
+  <input type="time" id="time" />
+  <button onclick="addReservation()">예약하기</button>
+
+  <h2>예약 목록</h2>
+  <table id="reservationTable">
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>날짜</th>
+        <th>시간</th>
+        <th>삭제</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const STORAGE_KEY = "reservations";
+
+    function loadReservations() {
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      const tbody = document.querySelector("#reservationTable tbody");
+      tbody.innerHTML = "";
+
+      data.forEach((res, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${res.name}</td>
+          <td>${res.date}</td>
+          <td>${res.time}</td>
+          <td><button onclick="deleteReservation(${index})">삭제</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function addReservation() {
+      const name = document.getElementById("name").value.trim();
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+
+      if (!name || !date || !time) {
+        alert("모든 필드를 입력하세요.");
+        return;
+      }
+
+      const reservations = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      reservations.push({ name, date, time });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(reservations));
+
+      document.getElementById("name").value = "";
+      document.getElementById("date").value = "";
+      document.getElementById("time").value = "";
+
+      loadReservations();
+    }
+
+    function deleteReservation(index) {
+      const reservations = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      reservations.splice(index, 1);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(reservations));
+      loadReservations();
+    }
+
+    window.onload = loadReservations;
+  </script>
+</body>
+</html>
