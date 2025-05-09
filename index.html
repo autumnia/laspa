@@ -12,21 +12,7 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">La Spa & Skincare</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <div id="navbar"></div>
 
   <div class="container my-4">
     <!-- Photos -->
@@ -36,45 +22,22 @@
       <div class="col-6 col-md-3"><img src="https://autumnia.github.io/laspa/images/service1.jpg"   alt="photo3"></div>
       <div class="col-6 col-md-3"><img src="https://autumnia.github.io/laspa/images/service2.jpg"   alt="photo4"></div>
     </section>
-
-    <!-- Map -->
-    <!-- <section id="map" class="map row g-3 mb-4">
-      <h2>Our Global Location main</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.821902735909!2d109.1981922!3d11.986822199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31708d5e02ef2763%3A0xb180b482514a8e3!2sLA%20SPA%20SKINCARE%20CR!5e0!3m2!1sko!2skr!4v1746678721483!5m2!1sko!2skr"
-       width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
-    </section>
-
-    <section id="map" class="map row g-3 mb-4">
-      <h2>Our Global Location 1st</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.7698208760394!2d109.1603973!3d12.0593522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170f52659976fc9%3A0xa6c0e03e3e960a03!2z65287Iqk7YyM!5e0!3m2!1sko!2skr!4v1746689005110!5m2!1sko!2skr" 
-      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </section>
-
-    <section id="map" class="map row g-3 mb-4">
-      <h2>Our Global Location 2st</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5450491602846!2d109.1654221!3d12.0747922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170f5dd91c2a20b%3A0xaebaf01b37f58129!2zTMOBIFNQQSBTS0lOQ0FSRSAyIOudvCDsiqTtjIwg66eI7IKs7KeAIC3Qm9CQINCh0J_QkCDQnNCQ0KHQodCQ0JYgKCBJRCBrYWthbyA6IGxhc3Bhc2tpbmNhcmUp!5e0!3m2!1sko!2skr!4v1746689079669!5m2!1sko!2skr" 
-      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </section> -->
-
-    
-
-    <!-- Contact -->
-    <!-- <section id="contact" class="contact">
-      <h2>Contact Info</h2>
-      <div class="contact-card  row g-3 mb-4">
-        <a href="https://wa.me/84862266774" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp: +84 86 22 66 774</a>
-        <a href="https://zalo.me/84862266774" target="_blank"><i class="fas fa-comments"></i> Zalo: +84 86 22 66 774</a>
-        <a href="https://open.kakao.com/o/sBMGWlDg" target="_blank"><i class="fas fa-comment-dots"></i> KakaoTalk: lacrspa</a>
-        <a href="https://facebook.com/lacrspa" target="_blank"><i class="fab fa-facebook-f"></i> Facebook: Lá CR Spa Skincare</a>
-        <p><i class="fab fa-viber"></i><strong>Viber:</strong> +84 86 22 66 774</p>
-        <a href="tel:+84862266774"><i class="fas fa-phone"></i> +84 86 22 66 774</a>
-      </div>
-    </section> -->
   </div>
 
   <footer>
     &copy; 2025 La Spa & Skincare. All rights reserved.
   </footer>
+
+  <script>
+    // 공통 메뉴 불러오기
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    });
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
