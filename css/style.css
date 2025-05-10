@@ -85,8 +85,32 @@ body {
     padding: 12px 24px;
     text-align: center;
   }
-  .reservation input, .reservation button {
-    margin: 5px;
+
+
+  .reservation .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .reservation input,
+  .reservation button {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  @media (min-width: 576px) {
+    .reservation input,
+    .reservation button {
+      flex: 1 1 200px;
+      max-width: none;
+    }
   }
 
   footer {
