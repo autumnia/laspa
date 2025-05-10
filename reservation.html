@@ -14,106 +14,55 @@
   <div id="navbar"></div>
 
   <div class="container my-4">
-
-
     <!-- Reservation -->
     <section id="reservation" class="reservation">
-      <div>
-        <h2>예약 등록</h2>
+      <div class="center-text">
+        <p>Cancellations must be made at least 24 hours in advance. </br>
+          Reservations can only be made by phone.</p> 
+      </div>
+
+      <h2 class="center-text">Make a Reservation</h2>
+      <div class="text-center">
         <input type="text" id="name" placeholder="이름" />
         <input type="date" id="date" />
         <input type="time" id="time" />
+        <input type="text" id="phone" placeholder="연락처" />
         <button onclick="addReservation()">예약하기</button>
-      
-        <br/><br/>
-
-        <h2>예약 목록</h2>
-        <table id="reservationTable">
-          <thead>
-            <tr>
-              <th>이름</th>
-              <th>날짜</th>
-              <th>시간</th>
-              <th>삭제</th>
-            </tr>
-            <tr>
-              <th>홍길동</th>
-              <th>25/11/2025</th>
-              <th>10:00</th>
-              <th>삭제</th>
-            </tr>            
-          </thead>
-          <tbody></tbody>
-        </table>
       </div>
+      
+      <br/><br/>
+
+      <h2 class="center-text">Reservation List</h2>
+      <table id="reservationTable" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Phone</th>
+            <th>Delete</th>
+          </tr>
+          <tr>
+            <th>Kim Autumn</th>
+            <th>2025-05-10</th>
+            <th>10:00</th>
+            <th>82-010-0000-0000</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </section>
   </div>
 
-  <footer>
+  <footer class="text-center py-3">
     &copy; 2025 La Spa & Skincare. All rights reserved.
   </footer>
 
-  <script>
-    // 공통 메뉴 불러오기
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch("navbar.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("navbar").innerHTML = data;
-        });
-    });
-  </script>    
+  <script src="./js/topmenu.js"></script>
 
-  <script>
-  const STORAGE_KEY = "reservations";
-
-  function loadReservations() {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    const tbody = document.querySelector("#reservationTable tbody");
-    tbody.innerHTML = "";
-
-    data.forEach((res, index) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${res.name}</td>
-        <td>${res.date}</td>
-        <td>${res.time}</td>
-        <td><button onclick="deleteReservation(${index})">삭제</button></td>
-      `;
-      tbody.appendChild(row);
-    });
-  }
-
-  function addReservation() {
-    const name = document.getElementById("name").value.trim();
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
-
-    if (!name || !date || !time) {
-      alert("모든 필드를 입력하세요.");
-      return;
-    }
-
-    const reservations = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    reservations.push({ name, date, time });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(reservations));
-
-    document.getElementById("name").value = "";
-    document.getElementById("date").value = "";
-    document.getElementById("time").value = "";
-
-    loadReservations();
-  }
-
-  function deleteReservation(index) {
-    const reservations = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    reservations.splice(index, 1);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(reservations));
-    loadReservations();
-  }
-
-  window.onload = loadReservations;
-  </script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="./js/reservation.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

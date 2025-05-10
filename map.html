@@ -38,16 +38,7 @@
     &copy; 2025 La Spa & Skincare. All rights reserved.
   </footer>
 
-  <script>
-    // 공통 메뉴 불러오기
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch("navbar.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("navbar").innerHTML = data;
-        });
-    });
-  </script>  
+  <script src="./js/topmenu.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
